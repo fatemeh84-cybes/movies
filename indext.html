@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فیلم نت - دانلود و تماشای فیلم</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>فیلم نت</h1>
+        <p>دانلود و تماشای آنلاین فیلم</p>
+    </header>
+    
+    <nav>
+        <button id="home-btn" class="active">خانه</button>
+        <button id="add-movie-btn">افزودن فیلم</button>
+        <button id="help-btn">راهنما</button>
+    </nav>
+    
+    <main>
+        <section id="home-section" class="section active">
+            <h2>فیلم‌های پرطرفدار</h2>
+            <div class="movies-grid" id="movies-container">
+                <!-- فیلم‌ها توسط JavaScript اضافه خواهند شد -->
+            </div>
+        </section>
+        
+        <section id="detail-section" class="section">
+            <button id="back-btn" class="btn"><i class="fas fa-arrow-right"></i> بازگشت</button>
+            <div class="movie-detail" id="movie-detail">
+                <!-- جزئیات فیلم توسط JavaScript اضافه خواهد شد -->
+            </div>
+        </section>
+        
+        <section id="watch-section" class="section">
+            <button id="back-from-watch-btn" class="btn"><i class="fas fa-arrow-right"></i> بازگشت</button>
+            <div class="video-container">
+                <video class="video-player" id="video-player" controls>
+                    مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                </video>
+            </div>
+        </section>
+        
+        <section id="add-movie-section" class="section">
+            <h2>افزودن فیلم جدید</h2>
+            <div class="add-movie-form">
+                <div class="form-group">
+                    <label for="movie-title">عنوان فیلم</label>
+                    <input type="text" id="movie-title" required>
+                    <button class="btn btn-success" style="margin-top: 0.5rem;" onclick="searchPoster()">
+                        <i class="fas fa-search"></i> جستجوی خودکار تصویر
+                    </button>
+                </div>
+                
+                <div class="search-poster" id="search-poster" style="display: none;">
+                    <h3>تصاویر پیدا شده</h3>
+                    <p>برای انتخاب تصویر مورد نظر روی آن کلیک کنید:</p>
+                    <div class="search-results" id="search-results">
+                        <!-- نتایج جستجو اینجا نمایش داده می‌شود -->
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="movie-director">کارگردان</label>
+                    <input type="text" id="movie-director" required>
+                </div>
+                <div class="form-group">
+                    <label for="movie-year">سال تولید</label>
+                    <input type="number" id="movie-year" required>
+                </div>
+                <div class="form-group">
+                    <label for="movie-thumbnail">لینک تصویر فیلم</label>
+                    <input type="url" id="movie-thumbnail" required>
+                    <small>می‌توانید از دکمه "جستجوی خودکار تصویر" استفاده کنید یا لینک مستقیم تصویر را وارد کنید</small>
+                </div>
+                <div class="form-group">
+                    <label for="movie-video">لینک فیلم (برای دانلود/تماشا)</label>
+                    <input type="url" id="movie-video" required placeholder="https://sample-videos.com/...">
+                    <small>برای تست می‌توانید از این لینک نمونه استفاده کنید: https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4</small>
+                </div>
+                <button id="submit-movie-btn" class="btn btn-primary"><i class="fas fa-plus"></i> افزودن فیلم</button>
+            </div>
+            
+            <div class="help-section">
+                <h3><i class="fas fa-info-circle"></i> راهنمای پیدا کردن لینک فیلم و تصویر</h3>
+                <div class="help-steps">
+                    <div class="help-step">
+                        <i class="fas fa-image"></i>
+                        <h4>پیدا کردن لینک تصویر</h4>
+                        <p>1. به سایت‌هایی مانند Google Images بروید</p>
+                        <p>2. نام فیلم + "poster" را جستجو کنید</p>
+                        <p>3. روی تصویر کلیک راست کرده و "آدرس تصویر را کپی کنید"</p>
+                    </div>
+                    <div class="help-step">
+                        <i class="fas fa-video"></i>
+                        <h4>پیدا کردن لینک فیلم</h4>
+                        <p>1. از لینک‌های نمونه برای تست استفاده کنید</p>
+                        <p>2. یا فیلم‌های خود را در Google Drive یا Dropbox آپلود کنید</p>
+                        <p>3. لینک مستقیم را دریافت کرده و اینجا قرار دهید</p>
+                    </div>
+                    <div class="help-step">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h4>آپلود فیلم‌های شخصی</h4>
+                        <p>1. فیلم خود را در Google Drive آپلود کنید</p>
+                        <p>2. لینک اشتراک‌گذاری را ایجاد کنید</p>
+                        <p>3. ID فیلم را استخراج کرده و در این قالب قرار دهید:</p>
+                        <p>https://drive.google.com/uc?export=download&id=ID_FILM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="help-section" class="section">
+            <h2>راهنمای استفاده از فیلم نت</h2>
+            <div class="help-section">
+                <div class="help-steps">
+                    <div class="help-step">
+                        <i class="fas fa-film"></i>
+                        <h4>افزودن فیلم جدید</h4>
+                        <p>برای افزودن فیلم جدید به منوی "افزودن فیلم" بروید. می‌توانید از دکمه "جستجوی خودکار تصویر" برای پیدا کردن پوستر فیلم استفاده کنید.</p>
+                    </div>
+                    <div class="help-step">
+                        <i class="fas fa-download"></i>
+                        <h4>دانلود فیلم</h4>
+                        <p>برای دانلود فیلم، روی فیلم مورد نظر کلیک کرده و سپس دکمه "دانلود فیلم" را بزنید.</p>
+                    </div>
+                    <div class="help-step">
+                        <i class="fas fa-play-circle"></i>
+                        <h4>تماشای فیلم</h4>
+                        <p>برای تماشای فیلم، روی فیلم مورد نظر کلیک کرده و سپس دکمه "تماشای فیلم" را بزنید.</p>
+                    </div>
+                    <div class="help-step">
+                        <i class="fas fa-comment"></i>
+                        <h4>ثبت نظر</h4>
+                        <p>در صفحه هر فیلم می‌توانید نظر خود را درباره فیلم ثبت کنید.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="help-section" style="background: #fff3cd; margin-top: 2rem;">
+                <h3><i class="fas fa-exclamation-triangle"></i> توجه مهم</h3>
+                <p>برای استفاده از لینک‌های فیلم، باید به مسائل کپی‌رایت توجه کنید. این برنامه فقط برای مقاصد آموزشی و نمونه ارائه شده است.</p>
+                <p>برای فیلم‌های شخصی، می‌توانید از سرویس‌های میزبانی ابری مانند Google Drive یا Dropbox استفاده کنید.</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2023 فیلم نت - تمام حقوق محفوظ است</p>
+        <p>این برنامه برای مقاصد آموزشی ارائه شده است</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
