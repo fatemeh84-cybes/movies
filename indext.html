@@ -15,12 +15,115 @@
         <p>دانلود و تماشای آنلاین فیلم</p>
     </header>
     
-    <nav>
-        <button id="home-btn" class="active">خانه</button>
-        <button id="add-movie-btn">افزودن فیلم</button>
-        <button id="help-btn">راهنما</button>
-    </nav>
     
+        <nav>
+    <button id="home-btn" class="active">خانه</button>
+    <button id="add-movie-btn">افزودن فیلم</button>
+    <button id="about-btn">درباره ما</button>
+    <button id="contact-btn">تماس با ما</button>
+    <button id="login-btn">ورود / ثبت‌نام</button>
+    <button id="help-btn">راهنما</button>
+</nav>
+    
+    <!-- بخش درباره ما -->
+<section id="about-section" class="section">
+    <h2>درباره ما</h2>
+    <div class="about-content">
+        <div class="about-card">
+            <i class="fas fa-film fa-3x"></i>
+            <h3>سایت تخصصی فیلم</h3>
+            <p>ما بزرگترین مجموعه فیلم‌های کلاسیک و مدرن را برای شما گردآوری کرده‌ایم.</p>
+        </div>
+        <div class="about-card">
+            <i class="fas fa-users fa-3x"></i>
+            <h3>تیم حرفه‌ای</h3>
+            <p>تیم ما متشکل از کارشناسان سینما و فناوری است که بهترین تجربه را برای شما فراهم می‌کنند.</p>
+        </div>
+        <div class="about-card">
+            <i class="fas fa-award fa-3x"></i>
+            <h3>کیفیت بالا</h3>
+            <p>تمامی فیلم‌ها با بهترین کیفیت و رزولوشن در اختیار شما قرار می‌گیرند.</p>
+        </div>
+    </div>
+</section>
+
+<!-- بخش تماس با ما -->
+<section id="contact-section" class="section">
+    <h2>تماس با ما</h2>
+    <div class="contact-form">
+        <div class="form-group">
+            <label for="contact-name">نام کامل</label>
+            <input type="text" id="contact-name" required>
+        </div>
+        <div class="form-group">
+            <label for="contact-email">ایمیل</label>
+            <input type="email" id="contact-email" required>
+        </div>
+        <div class="form-group">
+            <label for="contact-message">پیام شما</label>
+            <textarea id="contact-message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn-primary" onclick="sendMessage()">ارسال پیام</button>
+    </div>
+    
+    <div class="contact-info">
+        <h3>راه‌های ارتباطی</h3>
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>۰۲۱-۱۲۳۴۵۶۷۸</span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>info@moviesite.ir</span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>تهران، خیابان اصلی، پلاک ۱۲۳</span>
+        </div>
+    </div>
+</section>
+
+<!-- بخش لاگین -->
+<section id="login-section" class="section">
+    <h2>ورود به حساب کاربری</h2>
+    <div class="login-form">
+        <div class="form-group">
+            <label for="login-email">ایمیل یا نام کاربری</label>
+            <input type="text" id="login-email" required>
+        </div>
+        <div class="form-group">
+            <label for="login-password">رمز عبور</label>
+            <input type="password" id="login-password" required>
+        </div>
+        <button class="btn btn-primary" onclick="login()">ورود</button>
+        <p class="login-register">حساب کاربری ندارید؟ <a href="#" onclick="showRegister()">ثبت‌نام کنید</a></p>
+    </div>
+</section>
+
+<!-- بخش ثبت‌نام -->
+<section id="register-section" class="section">
+    <h2>ایجاد حساب کاربری</h2>
+    <div class="register-form">
+        <div class="form-group">
+            <label for="register-name">نام کامل</label>
+            <input type="text" id="register-name" required>
+        </div>
+        <div class="form-group">
+            <label for="register-email">ایمیل</label>
+            <input type="email" id="register-email" required>
+        </div>
+        <div class="form-group">
+            <label for="register-password">رمز عبور</label>
+            <input type="password" id="register-password" required>
+        </div>
+        <div class="form-group">
+            <label for="register-confirm">تکرار رمز عبور</label>
+            <input type="password" id="register-confirm" required>
+        </div>
+        <button class="btn btn-primary" onclick="register()">ثبت‌نام</button>
+        <p class="register-login">قبلاً ثبت‌نام کرده‌اید؟ <a href="#" onclick="showLogin()">وارد شوید</a></p>
+    </div>
+</section>
     <main>
         <section id="home-section" class="section active">
             <h2>فیلم‌های پرطرفدار</h2>
@@ -157,4 +260,5 @@
    <script src="./script.js"></script>
 </body>
 </html>
+
 
