@@ -275,7 +275,88 @@ function backFromWatch() {
     }
     showSection(document.getElementById('detail-section'));
 }
+// توابع بخش تماس با ما
+function sendMessage() {
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+    
+    if (!name || !email || !message) {
+        alert('لطفا تمام فیلدها را پر کنید');
+        return;
+    }
+    
+    alert(`پیام شما با موفقیت ارسال شد!\nنام: ${name}\nایمیل: ${email}`);
+    
+    // پاک کردن فرم
+    document.getElementById('contact-name').value = '';
+    document.getElementById('contact-email').value = '';
+    document.getElementById('contact-message').value = '';
+}
 
+// توابع بخش لاگین و ثبت‌نام
+function showLogin() {
+    showSection(document.getElementById('login-section'));
+}
+
+function showRegister() {
+    showSection(document.getElementById('register-section'));
+}
+
+function login() {
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+    
+    if (!email || !password) {
+        alert('لطفا ایمیل و رمز عبور را وارد کنید');
+        return;
+    }
+    
+    alert('ورود با موفقیت انجام شد!');
+    showSection(document.getElementById('home-section'));
+}
+
+function register() {
+    const name = document.getElementById('register-name').value;
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
+    const confirm = document.getElementById('register-confirm').value;
+    
+    if (!name || !email || !password || !confirm) {
+        alert('لطفا تمام فیلدها را پر کنید');
+        return;
+    }
+    
+    if (password !== confirm) {
+        alert('رمز عبور و تکرار آن مطابقت ندارند');
+        return;
+    }
+    
+    alert('ثبت‌نام با موفقیت انجام شد!');
+    showSection(document.getElementById('home-section'));
+}
+سپس در بخش event listeners (قبل از خط // رندر اولیه فیلم‌ها)، این کدها را اضافه کنید:
+
+javascript
+// در بخش event listeners، این خطوط رو اضافه کنید:
+const aboutBtn = document.getElementById('about-btn');
+const contactBtn = document.getElementById('contact-btn');
+const loginBtn = document.getElementById('login-btn');
+
+if (aboutBtn) aboutBtn.addEventListener('click', () => {
+    showSection(document.getElementById('about-section'));
+    setActiveButton(aboutBtn);
+});
+
+if (contactBtn) contactBtn.addEventListener('click', () => {
+    showSection(document.getElementById('contact-section'));
+    setActiveButton(contactBtn);
+});
+
+if (loginBtn) loginBtn.addEventListener('click', () => {
+    showSection(document.getElementById('login-section'));
+    setActiveButton(loginBtn);
+});
 // مقداردهی اولیه
 document.addEventListener('DOMContentLoaded', function() {
     // تنظیم event listeners برای دکمه‌های ناوبری
@@ -304,4 +385,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('اسکریپت با موفقیت لود شد!');
 });
+
 
