@@ -255,6 +255,7 @@ function showSection(section) {
 
 // مدیریت ناوبری
 function setActiveButton(btn) {
+    // همه دکمه‌ها شامل موارد جدید
     const buttons = document.querySelectorAll('nav button');
     buttons.forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
@@ -379,11 +380,36 @@ document.addEventListener('DOMContentLoaded', function() {
     if (backBtn) backBtn.addEventListener('click', goHome);
     if (backFromWatchBtn) backFromWatchBtn.addEventListener('click', backFromWatch);
     if (submitMovieBtn) submitMovieBtn.addEventListener('click', addNewMovie);
-    
+    // در بخش event listeners، این خطوط رو اضافه کنید:
+const aboutBtn = document.getElementById('about-btn');
+const contactBtn = document.getElementById('contact-btn');
+const loginBtn = document.getElementById('login-btn');
+const helpBtn = document.getElementById('help-btn'); // این خط رو اضافه کن
+
+if (aboutBtn) aboutBtn.addEventListener('click', () => {
+    showSection(document.getElementById('about-section'));
+    setActiveButton(aboutBtn);
+});
+
+if (contactBtn) contactBtn.addEventListener('click', () => {
+    showSection(document.getElementById('contact-section'));
+    setActiveButton(contactBtn);
+});
+
+if (loginBtn) loginBtn.addEventListener('click', () => {
+    showSection(document.getElementById('login-section'));
+    setActiveButton(loginBtn);
+});
+
+if (helpBtn) helpBtn.addEventListener('click', () => { // این بخش رو اضافه کن
+    showSection(document.getElementById('help-section'));
+    setActiveButton(helpBtn);
+});
     // رندر اولیه فیلم‌ها
     renderMovies();
     
     console.log('اسکریپت با موفقیت لود شد!');
 });
+
 
 
